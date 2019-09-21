@@ -1,4 +1,4 @@
-# oc
+# Colator
 
 ## Project tools
 Trello
