@@ -14,4 +14,3 @@ An Introduction to Redux's Core Concepts
 
 https://alligator.io/redux/redux-intro/
 
-
