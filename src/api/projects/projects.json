@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "",
+    "createdAt": "",
+    "changedAt": "",
+    "notes": "",
+    "active": true,
+    "assignment": "Wash house and car port",
+    "dayOfWork": "",
+    "customer": {
+      "_id": "",
+      "createdAt": "",
+      "changedAt": "",
+      "notes": "",
+      "active": true,
+      "name": "",
+      "sureName": "",
+      "tel": "",
+      "mobile": "",
+      "mail": "",
+      "address": {
+        "_id": "",
+        "createdAt": "",
+        "changedAt": "",
+        "notes": "Keine Notes",
+        "active": true ,
+        "street": "",
+        "number": "",
+        "plz": "",
+        "city":"",
+        "country": ""
+      }
+    },
+    "pictures":[{
+      "_id": "",
+      "createdAt": "",
+      "changedAt": "",
+      "notes": "",
+      "active": true,
+      "name": "",
+      "path": "",
+      "before": false,
+      "after": false
+    }]
+  }
+]

@@ -7,5 +7,5 @@ export class Customer extends Base {
   public tel: string;
   public mobile: string;
   public mail: string;
-  public address: Address[];
+  public address: Address;
 }
