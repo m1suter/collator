@@ -21,7 +21,6 @@
       true,
       "call-signature",
       "property-declaration",
-      "variable-declaration",
       "member-variable-declaration"
     ],
     "no-inferrable-types": [

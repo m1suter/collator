@@ -1,2 +1,10 @@
 [1025/202352.437:ERROR:process_reader_win.cc(151)] SuspendThread: Zugriff verweigert (0x5)
 [1025/202352.438:ERROR:exception_snapshot_win.cc(98)] thread ID 11280 not found in process
+[1110/105117.809:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Nur ein Teil der ReadProcessMemory- oder WriteProcessMemory-Anforderung wurde abgeschlossen. (0x12B)
+[1110/105117.815:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Nur ein Teil der ReadProcessMemory- oder WriteProcessMemory-Anforderung wurde abgeschlossen. (0x12B)
+[1110/105117.826:ERROR:process_info.cc(617)] range at 0x25965dbfb80, size 0x40 fully unreadable
+[1110/105117.826:ERROR:process_info.cc(617)] range at 0x25965dbfba8, size 0x18 fully unreadable
+[1110/105117.827:ERROR:process_info.cc(617)] range at 0x25965dbfb80, size 0x40 fully unreadable
+[1110/105117.827:ERROR:process_info.cc(617)] range at 0x25965dbfba8, size 0x18 fully unreadable
+[1110/105117.828:ERROR:process_info.cc(617)] range at 0x25965dbfb80, size 0x40 fully unreadable
+[1110/105117.828:ERROR:process_info.cc(617)] range at 0x25965dbfba8, size 0x18 fully unreadable
