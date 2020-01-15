@@ -1,0 +1,9 @@
+<div *ngIf="this.wod">
+    <h1>{{this.wod.date | date: 'E dd, LLLL yyyy' | uppercase}} {{this.wod.title | uppercase}}</h1>
+    <div>
+        {{this.wod.description}}
+    </div>
+</div>
+<div *ngIf="!this.wod">
+    <h1>No WOD found</h1>
+</div>
