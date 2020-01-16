@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Actions, ofType, Effect } from '@ngrx/effects';
+import {Actions, ofType, Effect, createEffect } from '@ngrx/effects';
 import * as LoginActions from '../actions/login.actions';
 import * as workoutActions from '../actions/workout.actions';
 import { LoginService } from '../../services/auth/login.service';
@@ -19,46 +19,42 @@ export class LoginEffects {
         private store: Store<AuthState.State>
         ) {}
 
-    @Effect() 
-    login$ = this.actions$.pipe(
-        ofType(LoginActions.login),
-        switchMap((action) =>
-            this.loginService.login(action.username, action.password).pipe(
-                map(person => LoginActions.login_success({person: person}),
-                catchError(error => of(LoginActions.login_failed())
+    login$ = createEffect(() => this.actions$.pipe(
+            ofType(LoginActions.login),
+            switchMap((action) =>
+                this.loginService.login(action.username, action.password).pipe(
+                    map(person => LoginActions.login_success({person: person}),
+                    catchError(error => of(LoginActions.login_failed())
+                )
             )
-        )
-    )));
-
-    @Effect()
-    navigateToWorkoutOfTheDay$ = this.actions$.pipe(
-        ofType(LoginActions.login_success),
-        tap(() =>{
-            this.router.navigate(['/collator/workout/wod'])
-        }),
-        map(done => LoginActions.login_done())
-    );
-
-    @Effect({dispatch: false})
-    loginDone$ = this.actions$.pipe(
-        ofType(LoginActions.login_done),
-        tap(),
-        map(() => 
-        this.store.dispatch(workoutActions.navigateToWorkoutOfTheDay())
-     ));
+        ))));
 
 
-    @Effect() 
-    logout$ = this.actions$.pipe(
-        ofType(LoginActions.logout),
-        switchMap((action) =>
-            this.loginService.logout().pipe(
-                map((person) => {
-                    this.router.navigate(['/login']);
-                    return LoginActions.logout_success()
-                },
-                catchError(error => of(LoginActions.logout_failed()))
-            ))
-        )
-    );
+    navigateToWorkoutOfTheDay$ = createEffect(() => this.actions$.pipe(
+            ofType(LoginActions.login_success),
+            tap(() =>{
+                this.router.navigate(['/collator/workout/wod'])
+            }),
+            map(done => LoginActions.login_done())
+        ));
+
+     loginDone$ = createEffect(() => this.actions$.pipe(
+            ofType(LoginActions.login_done),
+            tap(),
+            map(() => 
+            this.store.dispatch(workoutActions.navigateToWorkoutOfTheDay()))),
+            {dispatch: false});
+
+
+    logout$ = createEffect(() => this.actions$.pipe(
+            ofType(LoginActions.logout),
+            switchMap((action) =>
+                this.loginService.logout().pipe(
+                    map((person) => {
+                        this.router.navigate(['/login']);
+                        return LoginActions.logout_success()
+                    },
+                    catchError(error => of(LoginActions.logout_failed()))
+                ))
+            )));
 }
